@@ -7,8 +7,11 @@ export default  (state ={
                         }, action) => { 
     switch (action.type) {
         case 'ADD_TODO':{       
+            // let newState = [...state.todos];
+            // newState.push(action.todo)  
+            // return {todos:newState,allStatus:'all'}
             let newState = JSON.parse(JSON.stringify(state));
-            newState.todos.push({id:action.id,content:action.content,isCompleted:false})       
+            newState.todos.push(action.todo)
             return newState
         }
         case 'TOGGLE_TODO':{       

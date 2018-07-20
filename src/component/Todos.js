@@ -28,9 +28,9 @@ export default class ListContent extends Component {
     filterTodos = () => {
         let todos = this.props.todos;
         let status = this.props.status;
-        if(status == 'all'){
+        if(status === 'all'){
             return todos;
-        }else if(status == 'active'){
+        }else if(status === 'active'){
             return todos.filter(item => !item.isCompleted)
         }else{
             return todos.filter(item => item.isCompleted)
@@ -50,7 +50,7 @@ export default class ListContent extends Component {
                                 className="done-todo"
                                 // defaultChecked={item.isCompleted}
                                 checked={item.isCompleted?'checked':''}
-                                onClick={e => this.toggleActive(item.id)}
+                                onChange={e => this.toggleActive(item.id)}
                             />
                         
                             <span onDoubleClick={e => this.changeToEditable(e)}>
