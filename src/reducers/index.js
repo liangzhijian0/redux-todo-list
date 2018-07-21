@@ -18,7 +18,7 @@ export default  (state ={
         }
         case 'CHANGE_TODO': {      
             let newState = JSON.parse(JSON.stringify(state));
-            newState.todos.find(item => item.id === action.viewId).content =  action.content      
+            newState.todos = action.todos;   
             return newState
         }
         case 'FILTER_TODO': {      

@@ -28,9 +28,10 @@ const todosAPI = {
     }
   },
   updateItemContent(viewId, content) {
-    let todo = this.todos.find(item => item.viewId === viewId);
+    let todo = this.todos.find(item => item.id === viewId);
     if (todo !== undefined) {
       todo.content = content;
+      return [...this.filerByStatus(this.allStatus)];
     }
   }
 

@@ -16,7 +16,10 @@ const mapDispatchToProps = (dispatch, ownProps) =>{
             const todos = todosAPI.toggleActive(viewId)
             dispatch(changeCheck(todos));
         },
-        updateItemContent:(viewId,content) => dispatch(changeContent(viewId,content)),
+        updateItemContent:(viewId,content) => {
+            const todos = todosAPI.updateItemContent(viewId,content)
+            dispatch(changeContent(todos));
+        }
     }
 }
 
