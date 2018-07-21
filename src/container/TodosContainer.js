@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import Todos from "../component/Todos";
 import {changeCheck, changeContent} from "../action";
+import todosAPI from "../api/TodoResourseAPI"
 
 const mapStateToProps = (state, ownProps) =>{
     return {
@@ -11,7 +12,10 @@ const mapStateToProps = (state, ownProps) =>{
 
 const mapDispatchToProps = (dispatch, ownProps) =>{
     return {
-        toggleActiveHandler:(viewId) => dispatch(changeCheck(viewId)),
+        toggleActiveHandler:(viewId) => {
+            const todos = todosAPI.toggleActive(viewId)
+            dispatch(changeCheck(todos));
+        },
         updateItemContent:(viewId,content) => dispatch(changeContent(viewId,content)),
     }
 }

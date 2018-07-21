@@ -21,9 +21,10 @@ const todosAPI = {
     }  
   },
   toggleActive(viewId) {
-    let todo = this.todos.find(item => item.viewId === viewId);
+    let todo = this.todos.find(item => item.id === viewId);
     if (todo !== undefined) {
-      todo.toggleActive();
+      todo.isCompleted = !todo.isCompleted;
+      return [...this.filerByStatus(this.allStatus)];
     }
   },
   updateItemContent(viewId, content) {

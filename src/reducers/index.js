@@ -11,9 +11,9 @@ export default  (state ={
             newState.todos = action.todos
             return newState
         }
-        case 'TOGGLE_TODO':{       
+        case 'TOGGLE_TODO':{     
             let newState = JSON.parse(JSON.stringify(state));
-            newState.todos.find(item => item.id === action.viewId).isCompleted = !newState.todos.find(item => item.id === action.viewId).isCompleted        
+            newState.todos = action.todos;   
             return newState
         }
         case 'CHANGE_TODO': {      
