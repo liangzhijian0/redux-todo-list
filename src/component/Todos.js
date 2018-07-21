@@ -24,26 +24,16 @@ export default class ListContent extends Component {
         this.setState({ status: 'read' });
         this.props.toggleActiveHandler(id);
     }
-
-    filterTodos = () => {
-        let todos = this.props.todos;
-        let status = this.props.status;
-        if(status === 'all'){
-            return todos;
-        }else if(status === 'active'){
-            return todos.filter(item => !item.isCompleted)
-        }else{
-            return todos.filter(item => item.isCompleted)
-        }      
-    }
+  
 
 
     render() {
+        const todos = this.props.todos;
        
         return (
             <div >
                 <ol>
-                    {this.filterTodos().map(item => 
+                    {todos.map(item => 
                         <li className = {item.isCompleted ? 'checked':''}>          
                              <input
                                 type="checkbox"

@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import FilterTodo from "../component/FilterTodo";
 import {filterTodo} from "../action";
+import todosAPI from "../api/TodoResourseAPI"
 
 const mapStateToProps = (state, ownProps) =>{
     return {
@@ -10,7 +11,11 @@ const mapStateToProps = (state, ownProps) =>{
 
 const mapDispatchToProps = (dispatch, ownProps) =>{
     return {
-        changeStatusHandler:(status) => dispatch(filterTodo(status)),
+        changeStatusHandler:(status) => {
+            const todos = todosAPI.filerByStatus(status);
+            todosAPI.allStatus = status
+            dispatch(filterTodo(todos,status));
+        }
     }
 }
 

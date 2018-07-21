@@ -7,11 +7,8 @@ export default  (state ={
                         }, action) => { 
     switch (action.type) {
         case 'ADD_TODO':{       
-            // let newState = [...state.todos];
-            // newState.push(action.todo)  
-            // return {todos:newState,allStatus:'all'}
             let newState = JSON.parse(JSON.stringify(state));
-            newState.todos.push(action.todo)
+            newState.todos = action.todos
             return newState
         }
         case 'TOGGLE_TODO':{       
@@ -26,7 +23,8 @@ export default  (state ={
         }
         case 'FILTER_TODO': {      
             let newState = JSON.parse(JSON.stringify(state));
-            newState.allStatus = action.status;    
+            newState.allStatus = action.status;  
+            newState.todos = action.todos;  
             return newState
         }
         default:
