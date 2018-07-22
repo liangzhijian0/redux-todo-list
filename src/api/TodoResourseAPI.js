@@ -43,13 +43,22 @@ const todosAPI = {
     });
   },
 
-
-  toggleActive(viewId) {
-    let todo = this.todos.find(item => item.id === viewId);
-    if (todo !== undefined) {
-      todo.status = !todo.status;
-      return [...this.filerByStatus(this.allStatus)];
-    }
+  toggleActive(viewId,status,dispatch,action) {
+    let self = this;
+    axios.patch('http://localhost:8080/api/todos/'+viewId, {
+      status: status
+    })
+    .then(function (response) {
+      self.getServerData(dispatch,action);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    // let todo = this.todos.find(item => item.id === viewId);
+    // if (todo !== undefined) {
+    //   todo.status = !todo.status;
+    //   return [...this.filerByStatus(this.allStatus)];
+    // }
   },
 
   updateItemContent(viewId, content) {

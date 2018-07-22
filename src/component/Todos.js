@@ -20,9 +20,9 @@ export default class ListContent extends Component {
     }
     
         
-    toggleActive = (id) => {
+    toggleActive = (id,status) => {
         this.setState({ status: 'read' });
-        this.props.toggleActiveHandler(id);
+        this.props.toggleActiveHandler(id,status);
     }
   
 
@@ -34,13 +34,13 @@ export default class ListContent extends Component {
             <div >
                 <ol>
                     {todos.map(item => 
-                        <li className = {item.status ? 'checked':''}>          
+                        <li className = {item.status === 'completed' ? 'checked':''}>          
                              <input
                                 type="checkbox"
                                 className="done-todo"
                                 // defaultChecked={item.status}
                                 checked={item.status === 'completed' ?'checked':''}
-                                onChange={e => this.toggleActive(item.id)}
+                                onChange={e => this.toggleActive(item.id,item.status)}
                             />
                         
                             <span onDoubleClick={e => this.changeToEditable(e)}>
@@ -58,8 +58,7 @@ export default class ListContent extends Component {
                                 )}
                             </span>
                         </li>                     
-                    )}
-                   
+                    )}             
                 </ol>
             </div>             
         );

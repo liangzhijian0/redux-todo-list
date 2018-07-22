@@ -12,9 +12,15 @@ const mapStateToProps = (state, ownProps) =>{
 
 const mapDispatchToProps = (dispatch, ownProps) =>{
     return {
-        toggleActiveHandler:(viewId) => {
-            const todos = todosAPI.toggleActive(viewId)
-            dispatch(changeCheck(todos));
+        toggleActiveHandler:(viewId,status) => {
+            let newStatus = '';
+            if(status === 'active'){
+                newStatus = 'completed';
+            }else{
+                newStatus = 'active';
+            }
+            todosAPI.toggleActive(viewId,newStatus,dispatch,changeCheck);
+            // dispatch(changeCheck(todos));
         },
         updateItemContent:(viewId,content) => {
             const todos = todosAPI.updateItemContent(viewId,content)
