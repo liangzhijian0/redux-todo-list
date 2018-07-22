@@ -20,11 +20,9 @@ const mapDispatchToProps = (dispatch, ownProps) =>{
                 newStatus = 'active';
             }
             todosAPI.toggleActive(viewId,newStatus,dispatch,changeCheck);
-            // dispatch(changeCheck(todos));
         },
         updateItemContent:(viewId,content) => {
-            const todos = todosAPI.updateItemContent(viewId,content)
-            dispatch(changeContent(todos));
+            todosAPI.updateItemContent(viewId,content,dispatch,changeContent);
         }
     }
 }

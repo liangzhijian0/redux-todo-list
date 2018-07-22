@@ -54,19 +54,19 @@ const todosAPI = {
     .catch(function (error) {
       console.log(error);
     });
-    // let todo = this.todos.find(item => item.id === viewId);
-    // if (todo !== undefined) {
-    //   todo.status = !todo.status;
-    //   return [...this.filerByStatus(this.allStatus)];
-    // }
   },
 
-  updateItemContent(viewId, content) {
-    let todo = this.todos.find(item => item.id === viewId);
-    if (todo !== undefined) {
-      todo.content = content;
-      return [...this.filerByStatus(this.allStatus)];
-    }
+  updateItemContent(viewId,content,dispatch,action) {
+    let self = this;
+    axios.patch('http://localhost:8080/api/todos/'+viewId, {
+      content: content
+    })
+    .then(function (response) {
+      self.getServerData(dispatch,action);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
 };
