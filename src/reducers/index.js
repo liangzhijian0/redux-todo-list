@@ -1,8 +1,8 @@
 export default  (state ={ 
-                            allStatus:'all',
+                            filter:'all',
                             todos:[
-                                    {id:'1',content:'helloworld',isCompleted:false},
-                                    {id:'233',content:'redux',isCompleted:true},
+                                    {id:'1',content:'helloworld',status:'completed'},
+                                    {id:'233',content:'redux',status:'active'},
                                   ]
                         }, action) => { 
     switch (action.type) {

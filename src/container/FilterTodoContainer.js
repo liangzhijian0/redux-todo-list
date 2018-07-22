@@ -5,16 +5,15 @@ import todosAPI from "../api/TodoResourseAPI"
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        allStatus: state.allStatus
+        filter: todosAPI.filter
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) =>{
     return {
         changeStatusHandler:(status) => {
-            const todos = todosAPI.filerByStatus(status);
-            todosAPI.allStatus = status
-            dispatch(filterTodo(todos,status));
+            todosAPI.filter = status
+            todosAPI.getServerData(dispatch,filterTodo);       
         }
     }
 }

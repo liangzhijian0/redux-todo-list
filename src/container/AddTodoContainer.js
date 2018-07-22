@@ -14,8 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>{
     return {
         addHandler:(content) => {
             const todo = new Todo(content);
-            const todos = todosAPI.add(todo);
-            dispatch(addTodo(todos));
+            todosAPI.add(todo,dispatch,addTodo);
         }
     }
 }
