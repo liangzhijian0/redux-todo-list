@@ -4,6 +4,10 @@ const axios = require('axios');
 
 const todosAPI = { 
   filter:"all",
+
+  initServerData(dispatch,action){
+    this.getServerData(dispatch,action);
+  },
   
   getServerData(dispatch,action){
     let getDataUrl = 'http://localhost:8080/api/todos/search/statusOfTodos?status=';

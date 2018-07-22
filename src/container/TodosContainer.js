@@ -5,8 +5,7 @@ import todosAPI from "../api/TodoResourseAPI"
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        todos: state.todos,
-        status: state.allStatus
+        todos: state,
     }
 }
 
