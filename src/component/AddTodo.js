@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button,Input,Icon} from 'antd';
+import { Button } from 'antd';
 
 
 export default class InputList extends React.Component {
@@ -23,7 +23,7 @@ export default class InputList extends React.Component {
         return (
             <div>
                 <input className="input-text" type="text" name="ListItem" ref={this.textValue} />&nbsp;&nbsp;&nbsp;
-                <Button type="primary" size="middle" onClick={this.addItem}>Add</Button>
+                <Button type="primary" size="middle" onClick={this.addItem} >Add</Button>
             </div>
         );
     }

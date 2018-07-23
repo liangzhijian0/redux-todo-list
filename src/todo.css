@@ -47,7 +47,7 @@ ol li {
 }
 
 ol li:nth-child(even){
-    background: #f4ecec;
+    background: #ecf2f4;
 }
 
 li:hover{
@@ -62,7 +62,7 @@ li:hover{
  }
 
 #filters li a {
-    color: #fc999b;
+    color: #a6dbdf;
     margin: 3px;
     padding: 3px 7px;
     text-decoration: none;
@@ -77,9 +77,16 @@ li:hover{
     border-color: rgba(175, 47, 47, 0.1);
 }
 
-#filters li {
+/* #filters li {
 	display: inline;
-	margin: 0 0 5px 0;
+	margin: 0 10px 5px 0;
+	padding: 8px;
+	list-style: none;
+    outline: none;
+ } */
+
+ #filters button {
+	margin: 0 10px 5px 0;
 	padding: 8px;
 	list-style: none;
     outline: none;

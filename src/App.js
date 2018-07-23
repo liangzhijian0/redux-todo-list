@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './todo.css';
 import Header from './component/Header'
 import AddTodo from './container/AddTodoContainer'
 import Todos from './container/TodosContainer'
