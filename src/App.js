@@ -13,12 +13,12 @@ class App extends Component {
             <div className="container">
                 <Header />
                 <AddTodo />
+                <br />
                 <Router>
                     <div>
                         <Route exact path="/" component={Todos}></Route>
                         <Route exact path="/:status" component={Todos}></Route>
-                    </div>
-                    
+                    </div>          
                 </Router>
                 <FilterTodo />
                 
