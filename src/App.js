@@ -4,6 +4,7 @@ import Header from './component/Header'
 import AddTodo from './container/AddTodoContainer'
 import Todos from './container/TodosContainer'
 import FilterTodo from './container/FilterTodoContainer'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class App extends Component {
 
@@ -12,8 +13,15 @@ class App extends Component {
             <div className="container">
                 <Header />
                 <AddTodo />
-                <Todos />
-                <FilterTodo /> 
+                <Router>
+                    <div>
+                        <Route exact path="/" component={Todos}></Route>
+                        <Route exact path="/:status" component={Todos}></Route>
+                    </div>
+                    
+                </Router>
+                <FilterTodo />
+                
             </div>);
     }
 }

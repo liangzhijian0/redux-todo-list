@@ -29,7 +29,7 @@ export default class ListContent extends Component {
 
     render() {
         const todos = this.props.todos;
-       
+        const status = this.props.status;
         return (
             <div >
                 <ol>

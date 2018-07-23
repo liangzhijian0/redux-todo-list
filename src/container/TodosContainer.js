@@ -3,9 +3,23 @@ import Todos from "../component/Todos";
 import {changeCheck, changeContent} from "../action";
 import todosAPI from "../api/TodoResourseAPI"
 
+const isFiltered = (todo,status) => {
+    if(status === undefined) return true
+    return todo.status === status
+}
+
 const mapStateToProps = (state, ownProps) =>{
-    return {
-        todos: state,
+    let currentTodos = [];
+    const todos = [...state];
+    const {match :{params: {status}}} = ownProps;
+    todosAPI.filter = status;
+    if(todos.length !== 0){
+        currentTodos = todos.filter(todo => isFiltered(todo,status))
+    }   
+
+    return {   
+        todos: currentTodos,
+        status
     }
 }
 

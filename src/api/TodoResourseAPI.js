@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 const todosAPI = { 
-  filter:"all",
+  filter:undefined,
 
   initServerData(dispatch,action){
     this.getServerData(dispatch,action);
@@ -11,7 +11,7 @@ const todosAPI = {
   
   getServerData(dispatch,action){
     let getDataUrl = 'http://localhost:8080/api/todos/search/statusOfTodos?status=';
-    if(this.filter == "all"){
+    if(this.filter === undefined){
       getDataUrl += 'completed,active'
     }else{
       getDataUrl += this.filter;
