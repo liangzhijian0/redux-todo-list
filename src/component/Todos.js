@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Checkbox } from 'antd';
 
 export default class ListContent extends Component {
     constructor(props) {
@@ -35,13 +36,12 @@ export default class ListContent extends Component {
                 <ol>
                     {todos.map(item => 
                         <li className = {item.status === 'completed' ? 'checked':''}>          
-                             <input
-                                type="checkbox"
-                                className="done-todo"
-                                // defaultChecked={item.status}
-                                checked={item.status === 'completed' ?'checked':''}
+                             
+                            <Checkbox
+                                checked={item.status === 'completed'}
                                 onChange={e => this.toggleActive(item.id,item.status)}
-                            />
+                            >
+                            </Checkbox>
                         
                             <span onDoubleClick={e => this.changeToEditable(e)}>
                                 {this.state.status === 'read' ? (
